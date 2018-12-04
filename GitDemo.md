@@ -102,6 +102,12 @@ On branch master
 nothing to commit, working tree clean
 ```
 
+```bash
+echo "Hello World!" > HelloWorld.txt
+git add HelloWorld.txt
+git commit -m "Add HelloWorld.txt"
+```
+
 ## What is a Commit
 
 
