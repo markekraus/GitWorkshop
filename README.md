@@ -736,6 +736,97 @@ git rev-list --all --pretty
 Result:
 
 ```none
+[master cdd0c75] Add HelloWorld4.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 HelloWorld4.txt
+
+commit cdd0c753106868b6e2aa8d629e9f9feb9de21a03
+Author: Mark Kraus <github@markekraus.com>
+Date:   Fri Dec 7 14:29:29 2018 -0800
+
+    Add HelloWorld4.txt
+
+commit 544dfbcdc69514e73cae38b0040ae649e9d565a6
+Author: Mark Kraus <github@markekraus.com>
+Date:   Fri Dec 7 11:37:07 2018 -0800
+
+    Add HelloWorld3.txt
+
+commit a9f956afcae5ba1b442fa4834c4912ac7659ca5f
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:08:20 2018 -0800
+
+    Add HelloWorld2.txt
+
+commit af4eeb918df3f071e2769b4e7d94b8b744ead854
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:07:45 2018 -0800
+
+    Add HelloWorld.txt
 ```
 
-Switch to MyRemoteRepo
+Switch to MyRemoteRepo and fetch the changes
+
+```bash
+cd ../MyRemoteRepo
+git fetch
+git status
+```
+
+Result:
+
+```none
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From C:/git/20181213_GitWorkshop/MyRepo
+   544dfbc..cdd0c75  master     -> origin/master
+ * [new branch]      temp       -> origin/temp
+
+On branch master
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+```
+
+Pull in the changes made in MyRepo
+
+```bash
+git pull
+git rev-list --all --pretty
+```
+
+```none
+Updating 544dfbc..cdd0c75
+Fast-forward
+ HelloWorld4.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 HelloWorld4.txt
+
+commit cdd0c753106868b6e2aa8d629e9f9feb9de21a03
+Author: Mark Kraus <github@markekraus.com>
+Date:   Fri Dec 7 14:29:29 2018 -0800
+
+    Add HelloWorld4.txt
+
+commit 544dfbcdc69514e73cae38b0040ae649e9d565a6
+Author: Mark Kraus <github@markekraus.com>
+Date:   Fri Dec 7 11:37:07 2018 -0800
+
+    Add HelloWorld3.txt
+
+commit a9f956afcae5ba1b442fa4834c4912ac7659ca5f
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:08:20 2018 -0800
+
+    Add HelloWorld2.txt
+
+commit af4eeb918df3f071e2769b4e7d94b8b744ead854
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:07:45 2018 -0800
+
+    Add HelloWorld.txt
+```
