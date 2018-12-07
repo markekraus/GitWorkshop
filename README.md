@@ -10,6 +10,10 @@
 
 ## Creating a New Repository
 
+* Create a top level directory for the workshop
+* Create a directory
+* Initialize git in the new directory
+
 ```bash
 mkdir 20181213_GitWorkshop
 cd 20181213_GitWorkshop
@@ -27,17 +31,23 @@ Result:
 Initialized empty Git repository in C:/20181213_GitWorkshop/MyRepo/.git/
 ```
 
+## What a Repository Is
+
+* Collection of files
+* .git folder
+* Verison Control
+
 ## Create a File and add it to the Repository
 
-* Show the current repo status
+* Show the current repository status
 * Create a file `HelloWorld.txt`
 * Set the file contents to `Hello World!`
-* Show the repo status
+* Show the repository status
 * Add the file to the Index
-* Show the repo status
-* Commit the file to the local repo
-* Show the repo status
-* Show repo log
+* Show the repository status
+* Commit the file to the local repository
+* Show the repository status
+* Show repository log
 
 ```bash
 git status
@@ -195,6 +205,11 @@ Date:   Thu Dec 6 10:07:45 2018 -0800
 
 ## Revert a Commit
 
+* Create a Fail.txt file
+* Stage the file
+* Commit the file
+* Revert the commit
+
 ```bash
 echo 'Fail' > Fail.txt
 git add Fail.txt
@@ -269,6 +284,9 @@ Date:   Thu Dec 6 10:07:45 2018 -0800
 
 ## Reset to a commit
 
+* Soft reset to the bad commit
+* Hard reset to the last good commit
+
 ```bash
 git reset --soft e1d4a934146df81b969576e0a927d6b87ee4a497
 git status
@@ -328,9 +346,13 @@ Date:   Thu Dec 6 10:07:45 2018 -0800
 
 ## Revert vs Reset
 
+Revert
+
 * Revert undoes a previous commit as a new commit
 * Revert is similar to manually making the changes and creating a new commit
 * Revert is non-destructive
+
+Reset
 
 * Reset moves back to specific commit
 * Reset is similar to wiping the history
@@ -340,9 +362,12 @@ Date:   Thu Dec 6 10:07:45 2018 -0800
 
 * Point-in-time snapshot of the files
 * Identified by a sha1 hash
-* Hash made from commit metadata (Message, author, time, etc) and the files
+* Hash made from commit metadata (Message, author, committer, parent) and the files
 
 ![Git Commit](./images/Commit.png)
+
+```bash
+```
 
 ## Branches: Create, Checkout, Update, Delete
 
@@ -354,7 +379,7 @@ Date:   Thu Dec 6 10:07:45 2018 -0800
 * Update a branch
 * Delete branches
 
-### Create a new branch named new branch
+### Create a new branch
 
 ```bash
 git branch newbranch
@@ -548,11 +573,11 @@ Deleted branch newbranch2 (was ac33cae).
 
 * A way to work on the same things in parallel
 * Changes in one branch do not effect changes in another
-* In really, is just a logical pointer to a commit
+* In reality, a branch is just a logical pointer to a commit
 
 ![Branching](./images/branching.png)
 
-## Creating a Remote Repo
+## Creating a Remote Repository
 
 ```bash
 cd ..
@@ -567,7 +592,7 @@ Result:
 Initialized empty Git repository in C:/20181213_GitWorkshop/MyRemoteRepo/.git/
 ```
 
-## Adding and Syncing Remote Repo
+## Adding and Syncing Remote Repository
 
 ```bash
 cd ..
