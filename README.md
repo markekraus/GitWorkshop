@@ -589,6 +589,8 @@ Deleted branch newbranch2 (was ac33cae).
 
 ![Branching](./images/branching.png)
 
+![Branching 02](./images/branching02.gif)
+
 ## Creating a Remote Repository
 
 ```bash
