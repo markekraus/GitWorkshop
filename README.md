@@ -591,25 +591,151 @@ Deleted branch newbranch2 (was ac33cae).
 
 ![Branching 02](./images/branching02.gif)
 
-## Creating a Remote Repository
+## Cloning a Repository
+
+* Create and checkout a temp branch
+* Create a new folder in the parent folder
+* Clone MyRepo to new folder
+* List remote repositories
 
 ```bash
+git checkout -b temp
 cd ..
 mkdir MyRemoteRepo
 cd MyRemoteRepo
-git init
+git clone /c/20181213_GitWorkshop/MyRepo/ .
+git status
+git rev-list --all --pretty
+ls
 ```
 
 Result:
 
 ```none
-Initialized empty Git repository in C:/20181213_GitWorkshop/MyRemoteRepo/.git/
+Switched to a new branch 'temp'
+
+Cloning into '.'...
+done.
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+commit a9f956afcae5ba1b442fa4834c4912ac7659ca5f
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:08:20 2018 -0800
+
+    Add HelloWorld2.txt
+
+commit af4eeb918df3f071e2769b4e7d94b8b744ead854
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:07:45 2018 -0800
+
+    Add HelloWorld.txt
+
+HelloWorld.txt  HelloWorld2.txt
 ```
 
-## Adding and Syncing Remote Repository
+List remote repositories
 
 ```bash
-cd ..
-cd MyRepo
-git remote add origin ../MyRemote
+origin  C:/git/20181213_GitWorkshop/MyRepo/ (fetch)
+origin  C:/git/20181213_GitWorkshop/MyRepo/ (push)
 ```
+
+## Syncing Changes to a Remote Repository
+
+* Create HelloWorld3.txt
+* Stage HelloWorld3.txt
+* Commit HelloWorld3.txt
+* Push changes to MyRepo
+* View commit history
+* Switch to MyRepo
+* Checkout master
+* View commit history
+
+```bash
+echo "Hello World 3!" > HelloWorld3.txt
+git add HelloWorld3.txt
+git commit -m "Add HelloWorld3.txt"
+git push origin master
+```
+
+```none
+
+[master 544dfbc] Add HelloWorld3.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 HelloWorld3.txt
+
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 326 bytes | 326.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To C:/git/20181213_GitWorkshop/MyRepo/
+   a9f956a..544dfbc  master -> master
+```
+
+Check MyRepo for changes
+
+```bash
+cd ../MyRepo
+git checkout master
+git rev-list --all --pretty
+ls
+```
+
+Result:
+
+```none
+Switched to branch 'master'
+
+commit 544dfbcdc69514e73cae38b0040ae649e9d565a6
+Author: Mark Kraus <github@markekraus.com>
+Date:   Fri Dec 7 11:37:07 2018 -0800
+
+    Add HelloWorld3.txt
+
+commit a9f956afcae5ba1b442fa4834c4912ac7659ca5f
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:08:20 2018 -0800
+
+    Add HelloWorld2.txt
+
+commit af4eeb918df3f071e2769b4e7d94b8b744ead854
+Author: Mark Kraus <mkraus@linkedin.biz>
+Date:   Thu Dec 6 10:07:45 2018 -0800
+
+    Add HelloWorld.txt
+
+HelloWorld.txt  HelloWorld2.txt  HelloWorld3.txt
+```
+
+## Pulling Changes from Remote Repositories
+
+* Create HelloWorld4.txt
+* Stage HelloWorld4.txt
+* Commit HelloWorld4.txt
+* View commit history
+* Switch to MyRemoteRepo
+* View commit history
+* Pull changes
+* View commit history
+
+Make the changes in MyRepo
+
+```bash
+echo "Hello World 4!" > HelloWorld4.txt
+git add HelloWorld4.txt
+git commit -m "Add HelloWorld4.txt"
+git rev-list --all --pretty
+```
+
+Result:
+
+```none
+```
+
+Switch to MyRemoteRepo
