@@ -367,6 +367,18 @@ Reset
 ![Git Commit](./images/Commit.png)
 
 ```bash
+git cat-file -p a9f956afcae5ba1b442fa4834c4912ac7659ca5f
+```
+
+Result:
+
+```none
+tree a2e9bcdb7aa70f205f70681b3ea91debcc9d648f
+parent af4eeb918df3f071e2769b4e7d94b8b744ead854
+author Mark Kraus <mkraus@linkedin.biz> 1544119700 -0800
+committer Mark Kraus <mkraus@linkedin.biz> 1544119700 -0800
+
+Add HelloWorld2.txt
 ```
 
 ## Branches: Create, Checkout, Update, Delete
