@@ -830,3 +830,84 @@ Date:   Thu Dec 6 10:07:45 2018 -0800
 
     Add HelloWorld.txt
 ```
+
+## What a Remote is
+
+* "Remote" copy of the repository
+* Same commit history
+* Can be just another folder on the same System
+* Can be hosted by a server, like Azure DevOps or GitHub
+* Pull remote changes from the remote
+* Push local changes to the remote
+
+## Create Azure DevOps Repository
+
+Walk through Azure DevOps portal
+
+## Populate Empty Azure DevOps Repository from Existing Local Repository
+
+* Add remote
+* List remotes
+* Push local to remote
+
+```bash
+cd ../MyRepo
+git remote add origin https://lnkd-mkraus.visualstudio.com/GitWorkshopPrivate/_git/GitWorkshopPrivate
+git remote -v
+```
+
+Result:
+
+```none
+origin  https://lnkd-mkraus.visualstudio.com/GitWorkshopPrivate/_git/GitWorkshopPrivate (fetch)
+origin  https://lnkd-mkraus.visualstudio.com/GitWorkshopPrivate/_git/GitWorkshopPrivate (push)
+```
+
+Push locla to remote
+
+```bash
+git push
+```
+
+Result:
+
+```none
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (12/12), 1003 bytes | 334.00 KiB/s, done.
+Total 12 (delta 2), reused 5 (delta 0)
+remote: Analyzing objects... (12/12) (5 ms)
+remote: Storing packfile... done (149 ms)
+remote: Storing index... done (48 ms)
+To https://lnkd-mkraus.visualstudio.com/GitWorkshopPrivate/_git/GitWorkshopPrivate
+ * [new branch]      master -> master
+```
+
+Show updated in Azure DevOps
+
+## Clone a Remote Azure DevOps Repository Locally
+
+```bash
+cd ..
+mkdir AzDoRepo
+cd AzDoRepo
+git clone https://lnkd-mkraus.visualstudio.com/GitWorkshopPrivate/_git/GitWorkshopPrivate .
+```
+
+Result:
+
+```none
+Cloning into '.'...
+remote: Azure Repos
+remote: Found 12 objects to send. (93 ms)
+Unpacking objects: 100% (12/12), done.
+```
+
+## Remote Notes
+
+* Either Remote or local can be either empty or Populated
+* Clone a remote repository to start with the remote
+* Push a local repository to start locally
+* Possible but complicated to work with remote local both populated
